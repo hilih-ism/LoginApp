@@ -1,0 +1,7 @@
+.root {
+    -fx-background-image: url('C:\Users\Yemisrach\Desktop\Uni\3rd yr\2nd sem\AP\LoginApp\src\main\resources\com\example\loginapp\logo.PNG');
+    -fx-background-size: cover;
+}
+.title{
+ -fx-background-color: #F8D6DC;
+}
