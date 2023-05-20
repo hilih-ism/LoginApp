@@ -1,7 +1,8 @@
 .root {
-    -fx-background-image: url('C:\Users\Yemisrach\Desktop\Uni\3rd yr\2nd sem\AP\LoginApp\src\main\resources\com\example\loginapp\logo.PNG');
-    -fx-background-size: cover;
+   /*-fx-background-image: url('file:/C:/Users/Yemisrach/Desktop/Uni/3rd%20yr/2nd%20sem/AP/LoginApp/src/main/resources/com/example/loginapp/logo.PNG');
+    -fx-background-size: cover;*/
 }
-.title{
- -fx-background-color: #F8D6DC;
+.title {
+    -fx-background-color: #F8D6DC;
 }
+
