@@ -8,9 +8,14 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;
 import java.io.IOException;
-
+import java.sql.*;
 public class HelloApplication extends Application {
-    private static Scene scene;
+    static final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
+    static final String DB_URL = "jdbc:mysql://localhost/LoginApp";
+    static final String DB_USER = "root";
+    static final String DB_PASS = "";
+
+    public static Scene scene;
     @Override
     public void start(Stage stage) throws IOException {
 //
@@ -23,7 +28,9 @@ public class HelloApplication extends Application {
         stage.setScene(scene);
         stage.show();
     }
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
+        Class.forName(DB_DRIVER);
+        Connection con = DriverManager.getConnection(DB_URL,DB_USER,DB_PASS);
         launch();
     }
     public static void sceneFactory(String fxml) throws IOException{

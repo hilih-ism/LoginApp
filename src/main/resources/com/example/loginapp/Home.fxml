@@ -4,6 +4,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginapp.Home">
-    <Button layoutX="261.0" layoutY="187.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="77.0" style="-fx-background-color: 74B0A6;" stylesheets="@style.css" text="Logout" textFill="#74b0a6" />
+    <Button layoutX="261.0" layoutY="187.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="77.0" stylesheets="@style.css" text="Logout" textFill="#74b0a6" />
 
 </AnchorPane>

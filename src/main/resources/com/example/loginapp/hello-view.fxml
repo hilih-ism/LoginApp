@@ -4,46 +4,37 @@
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="403.0" prefWidth="700.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginapp.helloCTRL">
+<AnchorPane fx:id="logAn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0" prefWidth="550.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginapp.helloCTRL">
 
 
    <children>
-      <Button fx:id="btnlogin" layoutX="102.0" layoutY="253.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="77.0" style="-fx-background-color: 74B0A6;" stylesheets="@style.css" text="Login" textFill="#74b0a6" />
-      <TextField layoutX="73.0" layoutY="153.0" promptText="Username" stylesheets="@style.css" />
-      <TextField layoutX="73.0" layoutY="202.0" promptText="Password" />
-      <Label layoutX="85.0" layoutY="106.0" text="Customer Log in" textFill="#74b0a6">
+      <Button fx:id="btnlogin" layoutX="241.0" layoutY="232.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="69.0" style="-fx-focus-color: transparent;" stylesheets="@style.css" text="Login" textFill="#695593">
          <font>
-            <Font name="Gabriola" size="22.0" />
+            <Font name="Arial Nova" size="12.0" />
+         </font></Button>
+      <TextField layoutX="199.0" layoutY="149.0" promptText="Username" stylesheets="@style.css" />
+      <TextField layoutX="200.0" layoutY="192.0" promptText="Password" />
+      <Label layoutX="201.0" layoutY="102.0" text="Customer Log in" textFill="#74b0a6">
+         <font>
+            <Font name="Times New Roman" size="22.0" />
          </font>
       </Label>
-      <VBox layoutX="302.0" layoutY="-1.0" prefHeight="400.0" prefWidth="299.0">
-         <children>
-            <ImageView fitHeight="399.0" fitWidth="405.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@logo2.PNG" />
-               </image>
-            </ImageView>
-         </children>
-      </VBox>
-      <Label id="title" layoutX="73.0" layoutY="23.0" prefHeight="59.0" prefWidth="149.0" stylesheets="@style.css" text="Loop Loom" textFill="#695593">
+      <Label id="title" layoutX="175.0" layoutY="42.0" prefHeight="59.0" prefWidth="197.0" stylesheets="@style.css" text="Loop Loom" textFill="#695593">
          <font>
-            <Font name="Gabriola" size="40.0" />
+            <Font name="Times New Roman Italic" size="40.0" />
          </font>
       </Label>
-      <Label layoutX="35.0" layoutY="293.0" text="Don't have an account?">
+      <Label layoutX="163.0" layoutY="274.0" text="Don't have an account?">
          <font>
-            <Font name="Dubai Regular" size="13.0" />
+            <Font name="Times New Roman" size="13.0" />
          </font>
       </Label>
-      <Hyperlink id="reglink" fx:id="reglink" layoutX="157.0" layoutY="290.0" onAction="#handle" text="Register Here" textFill="#74b0a6">
+      <Hyperlink id="reglink" fx:id="reglink" layoutX="284.0" layoutY="271.0" onAction="#handle" text="Register Here" textFill="#74b0a6">
          <font>
-            <Font name="Dubai Regular" size="13.0" />
+            <Font name="Times New Roman" size="13.0" />
          </font></Hyperlink>
    </children>
 </AnchorPane>
