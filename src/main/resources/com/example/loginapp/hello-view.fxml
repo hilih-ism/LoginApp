@@ -15,8 +15,8 @@
          <font>
             <Font name="Arial Nova" size="12.0" />
          </font></Button>
-      <TextField layoutX="199.0" layoutY="149.0" promptText="Username" stylesheets="@style.css" />
-      <TextField layoutX="200.0" layoutY="192.0" promptText="Password" />
+      <TextField fx:id="usertxt" layoutX="199.0" layoutY="149.0" promptText="Username" stylesheets="@style.css" />
+      <TextField fx:id="passtxt" layoutX="200.0" layoutY="192.0" promptText="Password" />
       <Label layoutX="201.0" layoutY="102.0" text="Customer Log in" textFill="#74b0a6">
          <font>
             <Font name="Times New Roman" size="22.0" />

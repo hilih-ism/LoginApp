@@ -1,6 +1,8 @@
 package com.example.loginapp;
+
 import javafx.event.ActionEvent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import java.sql.*;
 
@@ -9,20 +11,40 @@ public class Register {
     static final String DB_URL = "jdbc:mysql://localhost/LoginApp";
     static final String DB_USER = "root";
     static final String DB_PASS = "";
-    static final String input = "INSERT INTO customer (Full Name) VALUES (?)";
-    public static void main(String[] args) throws Exception {
-       insertData(HelloApplication.scene);
-    }
-    public static void insertData(Scene scene, ActionEvent event) throws ClassNotFoundException, SQLException {
+    static final String input = "INSERT INTO customer (`Full Name`,`Email`,`Username`,`Password`) VALUES (?, ? ,?, ?)";
+
+    public static void insertData(Scene scene) throws ClassNotFoundException, SQLException {
         Class.forName(DB_DRIVER);
-        Connection con = DriverManager.getConnection(DB_URL,DB_USER,DB_PASS);
+        Connection con = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
 
         TextField Fnametxt = (TextField) scene.lookup("#Fname");
         String inputVal = Fnametxt.getText();
+        TextField emailtxt = (TextField) scene.lookup("#email");
+        String inputVal2 = emailtxt.getText();
+        TextField usertxt = (TextField) scene.lookup("#user");
+        String inputVal3 = usertxt.getText();
+        TextField passtxt = (TextField) scene.lookup("#pass");
+        String inputVal4 = passtxt.getText();
 
         PreparedStatement statement = con.prepareStatement(input);
         statement.setString(1, inputVal);
+        statement.setString(2, inputVal2);
+        statement.setString(3, inputVal3);
+        statement.setString(4, inputVal4);
         statement.executeUpdate();
 
+        con.close();
+    }
+
+    public void registerButtonClicked(ActionEvent event) {
+        Button registerButton = (Button) event.getSource();
+        Scene scene = registerButton.getScene();
+
+        try {
+            insertData(scene);
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
+
