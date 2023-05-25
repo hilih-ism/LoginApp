@@ -6,10 +6,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import org.mindrot.jbcrypt.BCrypt;
 
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -17,7 +18,12 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
+import java.io.File;
+
+import static com.example.loginapp.HelloApplication.scene;
 
 public class helloCTRL implements Initializable, EventHandler<ActionEvent> {
     static final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
@@ -34,17 +40,24 @@ public class helloCTRL implements Initializable, EventHandler<ActionEvent> {
     @FXML
     private Hyperlink reglink;
 
-    private Alert alert;
-
     @Override
     public void handle(ActionEvent actionEvent) {
         if (actionEvent.getSource().equals(btnlogin)) {
+            Alert alert;
             if (usertxt.getText().isEmpty() || passtxt.getText().isEmpty()) {
                 alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error Message");
                 alert.setHeaderText(null);
                 alert.setContentText("Username/Password field cannot be empty");
                 alert.showAndWait();
+            } else if (usertxt.getText().equals("admin") && passtxt.getText().equals("admin")) {
+                try {
+                    HelloApplication.sceneFactory("/com/example/loginapp/Admin");
+                    scene.getWindow().sizeToScene();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+
             } else {
                 String username = usertxt.getText();
                 String password = passtxt.getText();
@@ -63,6 +76,31 @@ public class helloCTRL implements Initializable, EventHandler<ActionEvent> {
                         // Successful login
                         try {
                             HelloApplication.sceneFactory("/com/example/loginapp/Home");
+                            LocalDateTime loginTime = LocalDateTime.now();
+
+                            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+                            String loginTimeStr = loginTime.format(formatter);
+                            try {
+                                String query2 = "INSERT INTO logins (`LoginTime`,`User`) VALUES (?,?)";
+                                PreparedStatement statement = con.prepareStatement(query2);
+                                statement.setString(1, loginTimeStr);
+                                statement.setString(2, username);
+                                statement.executeUpdate();
+                                con.close();
+
+                                String filePath = "C:/Users/Yemisrach/Desktop/Uni/3rd yr/2nd sem/AP/logindata.txt";
+                                File file = new File(filePath);
+                                file.createNewFile();
+                                BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true));
+                                writer.write(loginTimeStr);
+                                writer.newLine();
+                                writer.write(username);
+                                writer.newLine();
+                                writer.close();
+                            } catch (SQLException e) {
+                                e.printStackTrace();
+                            }
+
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
