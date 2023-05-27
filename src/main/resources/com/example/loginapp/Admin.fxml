@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="adAn" prefHeight="500.0" prefWidth="800.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.loginapp.AdminCTRL">
+   <children>
+      <Label layoutX="29.0" layoutY="129.0" text="Employee Name" textFill="#100f0f">
+         <font>
+            <Font name="Times New Roman" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="29.0" layoutY="175.0" text="Employee Username" textFill="#100f0f">
+         <font>
+            <Font name="Times New Roman" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="29.0" layoutY="227.0" text="Employee Email" textFill="#100f0f">
+         <font>
+            <Font name="Times New Roman" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="29.0" layoutY="289.0" text="Employee Password" textFill="#100f0f">
+         <font>
+            <Font name="Times New Roman" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="335.0" layoutY="14.0" text="Administrator" textFill="#695593">
+         <font>
+            <Font name="Times New Roman" size="33.0" />
+         </font>
+      </Label>
+      <Button fx:id="addEmp" layoutX="144.0" layoutY="350.0" mnemonicParsing="false" onAction="#setAddEmp" text="Add Employee" />
+      <TextField fx:id="empName" layoutX="165.0" layoutY="129.0" />
+      <TextField fx:id="empUser" layoutX="171.0" layoutY="172.0" />
+      <TextField fx:id="empEmail" layoutX="175.0" layoutY="224.0" />
+      <TextField fx:id="empPass" layoutX="180.0" layoutY="286.0" />
+      <Label layoutX="439.0" layoutY="138.0" text="Item Name" textFill="#100f0f">
+         <font>
+            <Font name="Times New Roman" size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="itemname" layoutX="546.0" layoutY="135.0" />
+      <Label layoutX="449.0" layoutY="214.0" text="Item ID" textFill="#100f0f">
+         <font>
+            <Font name="Times New Roman" size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="itemID" layoutX="556.0" layoutY="211.0" />
+      <Label layoutX="450.0" layoutY="289.0" text="Item Price" textFill="#100f0f">
+         <font>
+            <Font name="Times New Roman" size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="itemprice" layoutX="557.0" layoutY="286.0" />
+      <Button fx:id="addItem" layoutX="578.0" layoutY="350.0" mnemonicParsing="false" onAction="#setAddItem" text="Add Item" />
+      <Button fx:id="admLogout" layoutX="402.0" layoutY="75.0" mnemonicParsing="false" text="Log out" onAction="#adminLogout" />
+   </children>
+</AnchorPane>
