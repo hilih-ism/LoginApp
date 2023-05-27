@@ -1,12 +1,21 @@
 package com.example.loginapp;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+
+import java.io.IOException;
 import java.sql.*;
 
+import static com.example.loginapp.HelloApplication.scene;
+
 public class Register {
+    @FXML
+    private Button btnlogin2;
+    private Alert alert;
     static final String DB_DRIVER = "com.mysql.cj.jdbc.Driver";
     static final String DB_URL = "jdbc:mysql://localhost/LoginApp";
     static final String DB_USER = "root";
@@ -42,9 +51,26 @@ public class Register {
 
         try {
             insertData(scene);
+            alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Customer Registration");
+            alert.setHeaderText(null);
+            alert.setContentText("Successfully Registered");
+            alert.showAndWait();
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
-    }
+
+        }
+        public void setBtnlogin2(ActionEvent event){
+        if(event.getSource().equals(btnlogin2)){
+                try {
+                    HelloApplication.sceneFactory("/com/example/loginapp/hello-view");
+                    scene.getWindow().sizeToScene();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
+
 }
 
