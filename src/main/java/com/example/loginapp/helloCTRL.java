@@ -88,7 +88,7 @@ public class helloCTRL implements Initializable, EventHandler<ActionEvent> {
                                 statement.executeUpdate();
                                 con.close();
 
-                                String filePath = "C:/Users/Yemisrach/Desktop/Uni/3rd yr/2nd sem/AP/logindata.txt";
+                                String filePath = "C:\\Users\\Yemisrach\\Desktop\\Uni\\3rd yr\\2nd sem\\AP\\LoginApp\\logindata.txt";
                                 File file = new File(filePath);
                                 file.createNewFile();
                                 BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true));
